@@ -11,7 +11,7 @@
     transition: all 0.2s ease;
   }
   .playing > div {
-    background-color: #03A698;
+    background-color: #fff;
     height: 100%;
     width: 6px;
     display: inline-block;
