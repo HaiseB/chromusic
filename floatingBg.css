@@ -1,0 +1,36 @@
+
+.floating-bg{
+    width:150vw;
+    height:150vw;
+    background-color:pink;
+    opacity:0.8;
+    position:absolute;
+    top:-125vw;
+    left:calc(50% - 75vw);
+    border-radius:45%;
+    animation:rotate 30s infinite;
+  }
+  
+  .floating-bg::before{
+    content:"";
+    width:100%;
+    height:100%;
+    background:pink;
+    position:absolute;
+    top: 0;
+    left:0;
+    border-radius: 40%;
+    opacity:0.2;
+    animation: rotate 30s infinite;
+    
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }

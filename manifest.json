@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Nom de votre extension",
+    "version": "1.0",
+    "description": "Description de votre extension",
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+    }
+}
