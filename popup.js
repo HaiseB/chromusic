@@ -24,19 +24,19 @@ document.addEventListener("DOMContentLoaded", function () {
     chrome.tabs.query({}, function (tabs) {
       // Vérifier si l'onglet "audio.html" est déjà ouvert
       const audioPageOpen = tabs.some(
-        (tab) => tab.url && tab.url.includes("dawholePage/audio.html")
+        (tab) => tab.url && tab.url.includes("webPage/index.html")
       );
 
       // Si trouvé, activer l'onglet existant
       if (audioPageOpen) {
         const audioTab = tabs.find(
-          (tab) => tab.url && tab.url.includes("dawholePage/audio.html")
+          (tab) => tab.url && tab.url.includes("webPage/index.html")
         );
         chrome.tabs.update(audioTab.id, { active: true });
       } else {
         // Sinon, ouvrir un nouvel onglet
         chrome.tabs.create({
-          url: chrome.runtime.getURL("dawholePage/audio.html"),
+          url: chrome.runtime.getURL("webPage/index.html"),
         });
       }
 
