@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     chrome.tabs.query({}, function (tabs) {
       // Vérifier si l'onglet "audio.html" est déjà ouvert
       const audioPageOpen = tabs.some(
-        (tab) => tab.url && tab.url.includes("dawholePage/audio.html")
+        (tab) => tab.url && tab.url.includes("webPage/index.html")
       );
 
       // Mettre à jour le texte du bouton en fonction de l'existence de l'onglet
