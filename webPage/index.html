@@ -13,6 +13,8 @@
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/x-icon" href="../icon.png">
+    <script src="js/main.js"></script>
+    <script src="js/phenixRadio.js"></script>
     <title>Chromusic</title>
 </head>
 
@@ -33,18 +35,16 @@
                             </button>
                         </div>
                         <div class="mt-2">
-                            <h5>Game of Role</h5>
+                            <a href="./spotify.html?playing=GameOfRole" class="btn btn-secondary">Game of Role</a>
                         </div>
-
-                        <div class="mt-2 d-flex justify-content-between">
-                            <div class="p-4">Daily playlist 1</div>
-                            <div class="p-4">Daily playlist 2</div>
-                            <div class="p-4">Daily playlist 3</div>
+                        <div class="mt-2">
+                            <h5></h5>
+                            <a href="./spotify.html?playing=Playlist" class="btn btn-secondary">Spotify Playlist</a>
                         </div>
                         <div class="mt-2">
                             <button type="button" class="btn btn-secondary" id="settingsButton">Settings</button>
                             <div id="additionalParams" style="display: none;" class="mt-2 ">
-                                <span>Themes availables</span>
+                                <h5>Themes available</h5>
                                 <div class="row">
                                     <div class="col-6">
                                         <img src="./assets/themes/minty.png" alt="Minty Theme" class="img-fluid">
@@ -73,7 +73,7 @@
                                     <button class="btn btn-success" id="saveThemeButton">Save Theme</button>
                                 </div>
                                 <hr>
-                                <p>Hello there you can access to the shitty code <a
+                                <p>Hello there, you can access to the shitty code <a
                                         href="https://github.com/HaiseB/chromusic" target="_blank">here</a>! &#128526;
                                 </p>
                             </div>
@@ -84,8 +84,6 @@
         </div>
     </div>
 
-    <script src="js/main.js"></script>
-    <script src="js/phenixRadio.js"></script>
 </body>
 
 </html>
