@@ -1,3 +1,26 @@
+async function getSelectedTheme() {
+  return new Promise((resolve) => {
+      chrome.storage.local.get(['selectedTheme'], function (result) {
+          resolve(result.selectedTheme);
+      });
+  });
+}
+
+async function start() {
+  const selectedTheme = await getSelectedTheme();
+  const cssFileName = `${selectedTheme}.bootstrap.min.css`;
+  const cssFilePath = `./bootstrap/${cssFileName}`;
+
+  const styleLink = document.createElement('link');
+
+  styleLink.rel = 'stylesheet';
+  styleLink.type = 'text/css';
+  styleLink.href = cssFilePath;
+  document.head.appendChild(styleLink);
+}
+
+start();
+
 document.addEventListener("DOMContentLoaded", function () {
   const openAudioButton = document.getElementById("openAudioPage");
   const listenRadioPhenixButton = document.getElementById("listenRadioPhenix");
@@ -23,18 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
   listenRadioPhenixButton.addEventListener("click", function () {
     // Ouvrir une nouvelle page dans un nouvel onglet
     chrome.tabs.create({
-        url: chrome.runtime.getURL("webPage/index.html?playing=RadioPhenix"),
-    }, function (newTab) {
-        // Récupérer l'onglet actuel
-        chrome.tabs.getCurrent(function (currentTab) {
-            // Revenir à l'onglet actuel après un délai (par exemple, 1000 ms)
-            setTimeout(function () {
-                chrome.tabs.update(currentTab.id, { active: true });
-            }, 1000);
-        });
+      url: chrome.runtime.getURL("webPage/index.html?playing=RadioPhenix"),
     });
-});
-
+  });
 
   openAudioButton.addEventListener("click", function () {
     // Chercher tous les onglets ouverts

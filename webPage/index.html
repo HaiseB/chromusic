@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../bootstrap/vapor.bootstrap.min.css" crossorigin="anonymous" />
     <script src="../bootstrap/jquery-1.12.4.min.js"></script>
     <script src="../bootstrap/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro&display=swap" rel="stylesheet" />
@@ -38,29 +37,45 @@
                         </div>
 
                         <div class="mt-2 d-flex justify-content-between">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Accordion Item #3
-                                  </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                  <div class="accordion-body">
-                                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                  </div>
-                                </div>
-                              </div>
-                            <div class="p-3">Daily playlist 1</div>
-                            <div class="p-3">Daily playlist 2</div>
-                            <div class="p-3">Daily playlist 3</div>
+                            <div class="p-4">Daily playlist 1</div>
+                            <div class="p-4">Daily playlist 2</div>
+                            <div class="p-4">Daily playlist 3</div>
                         </div>
-                        <div>
+                        <div class="mt-2">
                             <button type="button" class="btn btn-secondary" id="settingsButton">Settings</button>
-                            <div id="additionalParams" style="display: none;">
-                                <p>Autres paramètres...</p>
+                            <div id="additionalParams" style="display: none;" class="mt-2 ">
+                                <span>Themes availables</span>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <img src="./assets/themes/minty.png" alt="Minty Theme" class="img-fluid">
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="./assets/themes/quartz.png" alt="Quartz Theme" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="mt-1 row">
+                                    <div class="col-6">
+                                        <img src="./assets/themes/solar.png" alt="Solar Theme" class="img-fluid">
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="./assets/themes/vapor.png" alt="Vapor Theme" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <div class="col-6">
+                                        <select class="form-select" id="themeSelector">
+                                            <option value="vapor">Vapor</option>
+                                            <option value="minty">Minty</option>
+                                            <option value="quartz">Quartz</option>
+                                            <option value="solar">Solar</option>
+                                        </select>
+                                    </div>
+                                    <button class="btn btn-success" id="saveThemeButton">Save Theme</button>
+                                </div>
                                 <hr>
-                                <p>Hello there, I'm Benjamin and you can see the code of this shit <a
-                                        href="https://github.com/HaiseB/chromusic" target="_blank">here</a> :)</p>
+                                <p>Hello there you can access to the shitty code <a
+                                        href="https://github.com/HaiseB/chromusic" target="_blank">here</a>! &#128526;
+                                </p>
                             </div>
                         </div>
                     </div>
