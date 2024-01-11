@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Nom de votre extension",
-    "version": "1.0",
-    "description": "Description de votre extension",
+    "name": "Chromusic",
+    "version": "0.1",
+    "description": "Play my fav sounds, without to deals with multiples tabs/applications",
     "action": {
         "default_popup": "popup.html",
         "default_icon": "icon.png"
