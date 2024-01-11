@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Mettre à jour le texte du bouton en fonction de l'existence de l'onglet
       openAudioButton.textContent = audioPageOpen
-        ? "Go Audio Player"
+        ? "Go to Audio Player"
         : "Open Audio Player";
 
       // Mettre à jour la classe du div "playing" en fonction de l'existence de l'onglet
