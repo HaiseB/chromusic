@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const listenRadioPhenixButton = document.getElementById("listenRadioPhenix");
   const listenSpotifyPlaylistButton = document.getElementById("listenSpotifyPlaylist");
   const listenGameOfRoleButton = document.getElementById("listenGameOfRole");
+  const openSettingsButton = document.getElementById("openSettings");
 
   function updateButtonAndRect() {
     // Chercher tous les onglets ouverts
@@ -64,6 +65,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Ouvrir une nouvelle page dans un nouvel onglet
     chrome.tabs.create({
       url: chrome.runtime.getURL("webPage/spotify.html?playing=GameOfRole"),
+    });
+  });
+
+  openSettingsButton.addEventListener("click", function () {
+    // Ouvrir une nouvelle page dans un nouvel onglet
+    chrome.tabs.create({
+      url: chrome.runtime.getURL("webPage/index.html?openSettings=true"),
     });
   });
 
