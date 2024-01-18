@@ -14,20 +14,77 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/x-icon" href="../icon.png">
     <script src="js/main.js"></script>
-    <title>Chromusic</title>
+    <script src="js/settings.js"></script>
+    <script src="js/spotify.js"></script>
+    <title>Chromusic - Spotify playlists</title>
 </head>
 
 <body>
+    <div class="floating-bg">
+    </div>
     <div class="container">
-        <a class="btn btn-primary" href="./index.html">
-            Return to Main page
-        </a>
-        <h5>Spotify</h5>
-        <div>
-            <iframe title="Spotify Embed: Recommendation Playlist "
-                src="https://open.spotify.com/embed/playlist/32NkwlZQYqno5HauO6FWvU" width="100%" height="100%"
-                frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy" />
+        <div id="source-modal" class="modal" tabindex="-1" style="display: block;" aria-modal="true" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title">Chromusic</h1>
+                    </div>
+                    <div class="modal-body">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="./index.html">
+                                    Audio Player Web Page
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item active">Spotify playlists</li>
+                        </ol>
+                        <h3 class="text-center">iFrame Spotify</h3>
+                        <ul class="list-group">
+                            <li class="list-group-item">Playlists</li>
+                            <li class="list-group-item spotify-iframe">
+                                <iframe title="Spotify Embed: Recommendation Playlist"
+                                    src="https://open.spotify.com/embed/playlist/32NkwlZQYqno5HauO6FWvU" width="100%"
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
+                            </li>
+                            <li class="list-group-item spotify-iframe">
+                                <iframe title="Daily mix 1"
+                                    src="https://open.spotify.com/embed/playlist/37i9dQZF1E39VcQRsR3o26" width="100%"
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
+                            </li>
+                            <li class="list-group-item spotify-iframe">
+                                <iframe title="Daily mix 2"
+                                    src="https://open.spotify.com/embed/playlist/37i9dQZF1E36miGJAIINge" width="100%"
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
+                            </li>
+                            <li class="list-group-item">Albums</li>
+                            <li class="list-group-item spotify-iframe">
+                                <iframe title="Ashnikko - Demidevil"
+                                    src="https://open.spotify.com/embed/album/438ToDoVaJH5aTIXXrlDyI" width="100%"
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
+                            </li>
+                            <li class="list-group-item spotify-iframe">
+                                <iframe title="Kalika - Adieu les monstres"
+                                    src="https://open.spotify.com/embed/album/0UrbIea2sXlvZfMhD9PkFA" width="100%"
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
+                            </li>
+                            <li class="list-group-item spotify-last-iframe">
+                                <iframe title="Melanie Martinez - Portals"
+                                    src="https://open.spotify.com/embed/album/4kI7ZZF6CgDGFTjZNFwXYG" width="100%"
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
+                            </li>
+                        </ul>
+                        <button type="button" class="btn btn-secondary mt-2" id="settingsButton">Settings</button>
+                            <div id="additionalParams" style="display: none;" class="mt-2 ">
+                            </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

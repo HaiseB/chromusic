@@ -2,6 +2,14 @@
     opacity: 0.66;
 }
 
+.spotify-iframe {
+    margin-bottom: -80px;
+}
+
+.spotify-last-iframe {
+    height: 100px;
+}
+
 .fade-in {
     animation: fadeIn 3s;
     -webkit-animation: fadeIn 3s;

@@ -7,6 +7,9 @@
     <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro&display=swap" rel="stylesheet" />
     <link href="css/playingRect.css" rel="stylesheet" />
     <link href="css/floatingBg.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Chromusic</title>
 </head>
 
@@ -22,11 +25,14 @@
                 <div class="rect4"></div>
                 <div class="rect5"></div>
             </div>
-            <button class="btn btn-primary" id="openAudioPage">Open Audio Player web page</button>
-            <button class="btn btn-primary mt-2" id="listenRadioPhenix">Listen Phenix Radio</button>
-            <button class="btn btn-primary mt-2" id="listenSpotifyPlaylist">Listen Spotify Playlist</button>
-            <button class="btn btn-primary mt-2" id="listenGameOfRole">Listen Game Of Role</button>
-            <button class="btn btn-primary mt-2" id="openSettings">Open settings</button>
+            <button type="button" class="btn btn-primary" id="openAudioPage">Open Audio Player web page</button>
+            <button type="button" class="btn btn-primary mt-2" id="listenRadioPhenix">Listen Phenix Radio</button>
+            <div class="btn-group mt-2" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary" id="listenSpotifyPlaylist">Listen Spotify</button>
+                <button type="button" class="btn btn-primary" id="listenSpotifyPlaylistDirect"><i class="fas fa-play fa-fw"></i></button>
+            </div>
+            <button type="button" class="btn btn-primary mt-2" id="listenGameOfRole">Listen Game Of Role</button>
+            <button type="button" class="btn btn-primary mt-2" id="openSettings">Open settings</button>
         </div>
     </div>
 </body>
