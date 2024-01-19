@@ -2,15 +2,8 @@
     opacity: 0.66;
 }
 
-.spotify-iframe {
-    margin-bottom: -80px;
-}
-
-.spotify-last-iframe {
-    height: 100px;
-}
-
-.spotify-last-iframe iframe {
+.spotify-iframe,
+.spotify-iframe iframe {
     height: 100px;
 }
 

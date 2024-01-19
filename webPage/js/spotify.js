@@ -85,18 +85,7 @@ async function updatePlaylistUI() {
                     loading="lazy"></iframe>
             `;
             ulIframe.appendChild(iframeLi);
-
-            // Retirez la classe "spotify-iframe" du dernier élément des albums
-            if (index === playlists.albums.length - 1) {
-                iframeLi.classList.remove('spotify-iframe');
-            }
         });
-
-        // Ajoutez la classe "spotify-last-iframe" au dernier élément global
-        const lastLi = ulIframe.lastElementChild;
-        if (lastLi) {
-            lastLi.classList.add('spotify-last-iframe');
-        }
     }
 }
 
