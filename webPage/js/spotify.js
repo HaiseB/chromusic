@@ -5,12 +5,12 @@ const defaultSpotifyPlaylists = {
             src: "https://open.spotify.com/embed/playlist/32NkwlZQYqno5HauO6FWvU",
         },
         {
-            title: "Daily mix 1",
-            src: "https://open.spotify.com/embed/playlist/37i9dQZF1E39VcQRsR3o26",
+            title: "Release Radar",
+            src: "https://open.spotify.com/embed/playlist/37i9dQZEVXbm5hwesT134B",
         },
         {
-            title: "Daily mix 2",
-            src: "https://open.spotify.com/embed/playlist/37i9dQZF1E36miGJAIINge",
+            title: "Daily",
+            src: "https://open.spotify.com/embed/playlist/37i9dQZF1EfLEPeaXTXu94",
         }
     ],
     albums: [
@@ -142,6 +142,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const playlistTextarea = document.getElementById("playlistTextarea");
+    const saveButton = document.getElementById('saveButton');
+    const resetPlaylistButton = document.getElementById('resetPlaylist');
+
 
     saveButton.addEventListener('click', function () {
         const spotifyPlaylists = JSON.parse(playlistTextarea.value);
@@ -149,5 +152,19 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Playlists saved : ", spotifyPlaylists);
             location.reload();
         });
+    });
+
+    resetPlaylistButton.addEventListener('click', function () {
+        const confirmed = window.confirm("Are you sure to reset playlists?");
+
+        if (confirmed) {
+            chrome.storage.local.set(
+                { spotifyPlaylists: defaultSpotifyPlaylists },
+                function () {
+                    console.log("Playlists have been reseted : ", defaultSpotifyPlaylists);
+                    location.reload();
+                }
+            );
+        }
     });
 });
