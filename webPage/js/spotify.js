@@ -1,3 +1,34 @@
+const defaultSpotifyPlaylists = {
+    playlists: [
+        {
+            title: "Spotify Embed: Recommendation Playlist",
+            src: "https://open.spotify.com/embed/playlist/32NkwlZQYqno5HauO6FWvU",
+        },
+        {
+            title: "Daily mix 1",
+            src: "https://open.spotify.com/embed/playlist/37i9dQZF1E39VcQRsR3o26",
+        },
+        {
+            title: "Daily mix 2",
+            src: "https://open.spotify.com/embed/playlist/37i9dQZF1E36miGJAIINge",
+        }
+    ],
+    albums: [
+        {
+            title: "Ashnikko - Demidevil",
+            src: "https://open.spotify.com/embed/album/438ToDoVaJH5aTIXXrlDyI",
+        },
+        {
+            title: "Kalika - Adieu les monstres",
+            src: "https://open.spotify.com/embed/album/0UrbIea2sXlvZfMhD9PkFA",
+        },
+        {
+            title: "Melanie Martinez - Portals",
+            src: "https://open.spotify.com/embed/album/4kI7ZZF6CgDGFTjZNFwXYG",
+        },
+    ],
+};
+
 async function getPlaylists() {
     return new Promise((resolve) => {
         chrome.storage.local.get(["spotifyPlaylists"], function (result) {
@@ -11,15 +42,16 @@ async function updatePlaylistUI() {
     const playlists = await getPlaylists();
     const ulIframe = document.getElementById('ul-iframe');
 
-    // Supprimez les anciens éléments de la liste
-    ulIframe.innerHTML = '';
+    if (playlists && (playlists.playlists || playlists.albums)) {
+        ulIframe.innerHTML = '';
 
-    if (playlists && playlists.playlists) {
         // Ajoutez le titre "Playlists"
-        const playlistsTitleLi = document.createElement('li');
-        playlistsTitleLi.classList.add('list-group-item');
-        playlistsTitleLi.textContent = 'Playlists';
-        ulIframe.appendChild(playlistsTitleLi);
+        if (playlists.playlists.length > 0) {
+            const playlistsTitleLi = document.createElement('li');
+            playlistsTitleLi.classList.add('list-group-item');
+            playlistsTitleLi.textContent = 'Playlists';
+            ulIframe.appendChild(playlistsTitleLi);
+        }
 
         // Ajoutez les playlists
         playlists.playlists.forEach((playlist, index) => {
@@ -35,10 +67,12 @@ async function updatePlaylistUI() {
         });
 
         // Ajoutez le titre "Albums"
-        const albumsTitleLi = document.createElement('li');
-        albumsTitleLi.classList.add('list-group-item');
-        albumsTitleLi.textContent = 'Albums';
-        ulIframe.appendChild(albumsTitleLi);
+        if (playlists.albums.length > 0) {
+            const albumsTitleLi = document.createElement('li');
+            albumsTitleLi.classList.add('list-group-item');
+            albumsTitleLi.textContent = 'Albums';
+            ulIframe.appendChild(albumsTitleLi);
+        }
 
         // Ajoutez les albums
         playlists.albums.forEach((album, index) => {
@@ -69,39 +103,9 @@ async function updatePlaylistUI() {
 async function start() {
     const playlists = await getPlaylists();
     const playlistTextarea = document.getElementById("playlistTextarea");
+    const resetPlaylistsAsked = window.location.href.includes('resetPlaylist=true');
 
-    if (!playlists) {
-        const defaultSpotifyPlaylists = {
-            playlists: [
-                {
-                    title: "Spotify Embed: Recommendation Playlist",
-                    src: "https://open.spotify.com/embed/playlist/32NkwlZQYqno5HauO6FWvU",
-                },
-                {
-                    title: "Daily mix 1",
-                    src: "https://open.spotify.com/embed/playlist/37i9dQZF1E39VcQRsR3o26",
-                },
-                {
-                    title: "Daily mix 2",
-                    src: "https://open.spotify.com/embed/playlist/37i9dQZF1E36miGJAIINge",
-                }
-            ],
-            albums: [
-                {
-                    title: "Ashnikko - Demidevil",
-                    src: "https://open.spotify.com/embed/album/438ToDoVaJH5aTIXXrlDyI",
-                },
-                {
-                    title: "Kalika - Adieu les monstres",
-                    src: "https://open.spotify.com/embed/album/0UrbIea2sXlvZfMhD9PkFA",
-                },
-                {
-                    title: "Melanie Martinez - Portals",
-                    src: "https://open.spotify.com/embed/album/4kI7ZZF6CgDGFTjZNFwXYG",
-                },
-            ],
-        };
-
+    if (!playlists || resetPlaylistsAsked) {
         chrome.storage.local.set(
             { spotifyPlaylists: defaultSpotifyPlaylists },
             function () {
@@ -109,9 +113,9 @@ async function start() {
             }
         );
 
-        playlistTextarea.value = defaultSpotifyPlaylists;
+        playlistTextarea.value = JSON.stringify(defaultSpotifyPlaylists, null, 2);
     } else {
-        playlistTextarea.value = playlists;
+        playlistTextarea.value = JSON.stringify(playlists, null, 2);
     }
 }
 
@@ -140,11 +144,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const playlistTextarea = document.getElementById("playlistTextarea");
 
     saveButton.addEventListener('click', function () {
-        const spotifyPlaylists = playlistTextarea.value.replace(/(\r\n|\n|\r)/gm, "");
+        const spotifyPlaylists = JSON.parse(playlistTextarea.value);
         chrome.storage.local.set({ spotifyPlaylists: spotifyPlaylists }, function () {
-                console.log("Playlists saved : ", spotifyPlaylists);
-                location.reload();
-            }
-        );
+            console.log("Playlists saved : ", spotifyPlaylists);
+            location.reload();
+        });
     });
 });
